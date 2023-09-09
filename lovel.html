@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+    <script>
+        var a = new Array();
+        var b = new Array();
+
+        function execute1(){
+            var name = document.getElementById("name2").value
+            if(a.includes(name) == true){
+                window.alert("You and " + name +" have a " + b[a.indexOf(name)] + " percentage of falling in love")
+            }
+            if(a.includes(name) == false){
+                var x = Math.round(Math.random(1,10)*100)
+                window.alert("You and " + name +" have a " + x + " percentage of falling in love")
+                a[a.length+1] = name
+                b[b.length+1] = x
+            }
+            
+        }
+    </script>
+
+    <head><title>Love Calculator</title></head>
+    <body>
+        <p>Enter your crushes name:</p>
+        <input type="text" id = "name2" name = "name2"><br>
+    
+        <button type="button" onclick="execute1()">CALCULATE</button>
+
+    </body>
+
+
+</html>
