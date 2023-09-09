@@ -6,12 +6,13 @@
         var b = new Array();
 
         function execute1(){
+            var x = 0;
             var name = document.getElementById("name2").value
             if(a.includes(name) == true){
                 window.alert("You and " + name +" have a " + b[a.indexOf(name)] + " percentage of falling in love")
             }
             if(a.includes(name) == false){
-                var x = Math.round(Math.random(1,10)*100)
+                x = Math.round(Math.random(1,10)*100)
                 if(name == "samson"){
                     x = 100
                 }
@@ -19,7 +20,11 @@
                 a[a.length+1] = name
                 b[b.length+1] = x
             }
-            
+            if(x > 80){
+                if(window.confirm("Would you like to go on a date with " + name + "?")){
+                    window.alert("you went for a date and " + name + " kissed you")
+                }
+            }
         }
     </script>
 
