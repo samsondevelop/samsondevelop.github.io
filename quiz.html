@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        var slider = "null"
+        var labal = "null"
+        
+        function onDragfunc(num){
+            //document.getElementById("ballsack" + num).innerHTML = document.getElementById("forniterange" + 1).value
+            var slider = "fortniterange"
+            var label = "ballsack"
+            slider += num
+            label += num          
+            document.getElementById(label).innerHTML = document.getElementById(slider).value
+            
+
+        }
+        function quizCompletefunc(){
+            var score = 0
+            var slider = document.getElementsByName("sliderz")
+            for (let i = 0; i<slider.length; i++)
+            {            
+                score += parseInt(slider[i].value)
+            }
+
+            var string = window.location.toString()
+            localStorage.setItem("scorekey", score.toString())
+            string = string.replace("quiz", "results")
+            window.location.href = string
+        }
+        
+    </script>
+    <title>how cool are you quiz</title>
+    <h1>How Cool Are You?</h1>
+    <body>
+        <p>How many hours a week do you play fortnite?</p>
+        <input type ="range" id = "fortniterange1" name = "sliderz" min = 0 max = 100" onchange="onDragfunc(1)">
+        <label for = "fortniterange1" id = "ballsack1"> Hours</label><br>
+
+        <p>What would you rate fortnite out of 100?</p>
+        <input type ="range" id = "fortniterange2" name = "sliderz" min = 0 max = 10" onchange="onDragfunc(2)">
+        <label for = "fortniterange2" id = "ballsack2"> Points</label><br>
+
+        <p>How badly do you wanna fuck the lynx skin out of 100?</p>
+        <input type ="range" id = "fortniterange3" name = "sliderz" min = 0 max = 10" onchange="onDragfunc(3)">
+        <label for = "fortniterange3" id = "ballsack3"> Sex Appeal</label><br>
+        <br>
+        <button onclick="quizCompletefunc()">Click me to submit your quiz!</button>
+    </body>
+</html>

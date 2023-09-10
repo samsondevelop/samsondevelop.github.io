@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        var score100 = 0;
+        function testbutton(){
+            var string = window.location.toString()
+            string = string.replace("results", "quiz")
+            window.location.href = string
+            
+        }
+        
+        function calculate(){
+            var performance = "undef"
+            score100 = Math.round(parseInt(localStorage.getItem("scorekey"))/3)
+            document.getElementById("scoreid").innerHTML = score100
+            switch(true){
+                case (score100<30):
+                performance = "god awful"
+                break
+                case(score100<50 && score100 > 30):
+                performance = "shit"
+                break
+                case (score100 == 50):
+                    performance = "bang average"
+                    break
+                case (score100>50 && score100 <80):
+                    performance = "pretty good"
+                    break
+                case (score100>= 80 && score100 < 95):
+                    performance = "very flippin cool"
+                    break
+                case (score100 >= 95):
+                    performance = "the popular loner"
+                    break
+
+            }
+            document.getElementById("label2").innerHTML = performance
+        }
+    </script>
+    <body onload="calculate()">
+        <p>You scored a </p>
+        <p id = "scoreid"></p> 
+        <p>your coolness level is: </p> <label id = "label2"></label> <br>
+        <br>
+        <button onclick="testbutton()">Click me to try the quiz again!</button>
+    </body>
+</html>
